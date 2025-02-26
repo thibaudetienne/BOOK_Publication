@@ -1,0 +1,88 @@
+\documentclass[12pt]{book}
+
+\usepackage[a4paper,margin=2cm,innermargin=2cm]{geometry}
+\usepackage{eurosym}
+\usepackage[T1]{fontenc}
+\usepackage{needspace}
+\usepackage{marginnote}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+%\usepackage{bruface}
+
+\newcommand{\lat}{\fontencoding{OT1}\selectfont}
+\renewcommand*{\marginfont}{\sffamily\footnotesize}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\usepackage{imakeidx}
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue,linkcolor=blue]{hyperref}
+\usepackage{xcolor}
+\makeindex[intoc]
+
+\newenvironment{conf-abstract}[4][]{
+  \needspace{10\baselineskip}
+  \begin{center}
+    { \renewcommand\textsuperscript[1]{}
+      \phantomsection\addcontentsline{toc}{section}
+      {\texorpdfstring{#2 (\emph{#3})}{#2 (#3)}}
+    }
+    {{\large\bfseries #2}\marginnote{#1}\par}
+    \bigskip\smallskip
+    {#3\par}
+    \smallskip
+    {\small #4\par}
+  \end{center}
+}{%
+  \bigskip
+  \hrule
+  \bigskip
+}
+
+\usepackage{etoolbox}
+\newcommand{\indexauthors}[1]{%
+  \forcsvlist{\index}{#1}
+}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{-1}
+\pagestyle{plain}
+\usepackage{lipsum}
+
+
+\begin{document}
+
+\section{\textsc{Poster presentation}}
+
+\noindent \hrulefill
+
+\begin{conf-abstract}[PP-XX] % for plenary talk - PT-XX; for invited talk - IT-XX; for contributed talk (oral presentation) - CT-XX; for poster presentation - PP-XX
+{Lower bound to the energy of complex atoms}  
+{\textit{by} Peter Hertel\textsuperscript{1}, \href{mailto:lieb@math.princeton.edu}{Elliott H. Lieb\textsuperscript{2,}$^{*,\dag}$}, \textit{and} Walter Thirring\textsuperscript{1}} % please add all authors name and surname separated by comma
+{\textsuperscript{1}\textit{Institut für Theoretische Physik der Universität Wien, A-1090 Wien, Boltzmanngasse 5, Austria}\\ 
+{\textsuperscript{2}\textit{Departments of Mathematics and Physics, Princeton University, Princeton, New Jersey 08540}}\\
+}
+\indexauthors{lieb}
+
+There are methods available for calculating rather precise lower bounds for the energy of simple atoms or molecules. If complex atoms or molecules are to be investigated, these methods become inapplicable, or impracticable. Here we propose a new method which, for the above cases, promises to become as accurate as the Hartree-Fock procedure for the upper bound. Although applicable to a wider class of problems, we shall demonstrate it for an atom with $N$ electrons.
+
+
+{\small{
+{$\;$\\\bf References}%The references are not mandatory.
+\begin{enumerate}[label={[\arabic*]}]
+\item T. Tietz, \textit{J. Chem. Phys.} 25, 787 (1956).
+\vspace*{-0.3cm}\item R. O. Mueller, A. R. P. Rau, and L. Spruch, \textit{Phys. Rev. A} 8, 1186 (1973).
+%\vspace*{-0.3cm}\item a
+%\vspace*{-0.3cm}\item b
+%\vspace*{-0.3cm}\item c
+\end{enumerate}
+}}
+
+\noindent $^\dag$ \textit{Speaker}\\
+$^*$ \textit{Corresponding author(s)}
+
+\end{conf-abstract}
+ 
+
+
+\end{document}
